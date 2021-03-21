@@ -1,12 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import categoriesReducer from "./slices/categoriesSlice";
+import categoryReducer from "./slices/categorySlice";
 import userReducer from "./slices/userSlice";
 
 const rootReducer = combineReducers({
-    feeds: categoriesReducer,
+    category: categoryReducer,
     user: userReducer,
 });
-
-export type RootState = ReturnType<typeof rootReducer>;
 
 export default rootReducer;
