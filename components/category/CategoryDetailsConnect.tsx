@@ -20,7 +20,7 @@ const CategoryDetailsConnect: React.FC<CategoryDetailsConnect> = ({ id }) => {
     const startCategory = () => {};
 
     if (ready) {
-        return <CategoryDetails category={category} onStart={startCategory} />;
+        return <CategoryDetails category={category} />;
     } else {
         // todo
         return <div>loading</div>;
