@@ -7,10 +7,16 @@ export type CategoryDetailsProps = {
 
 const CategoryDetails: React.FC<CategoryDetailsProps> = ({ category }) => {
     return (
-        <div>
-            <div>{category.name}</div>
+        <div className="text-center">
+            <div className="text-center mb-4">
+                <p className="subtitle">The category is</p>
+                <h1>{category.name}</h1>
+                <p>Ready to start?</p>
+            </div>
             <div>
-                <Link href={`/categories/${category.id}/questions`}>Start</Link>
+                <Link href={`/categories/${category.id}/questions`}>
+                    <a className="btn">Start</a>
+                </Link>
             </div>
         </div>
     );

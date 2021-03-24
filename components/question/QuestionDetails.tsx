@@ -27,33 +27,51 @@ const QuestionDetails: React.FC<QuestionDetailsProps> = ({
             shuffle([
                 question.correct_answer,
                 ...question.incorrect_answers,
-            ]).map((a) => <div onClick={() => onAnswerClick(a)}>{a}</div>)
+            ]).map((answer) => (
+                <div
+                    className="btn"
+                    onClick={() => onAnswerClick(answer)}
+                    dangerouslySetInnerHTML={{ __html: answer }}
+                />
+            ))
         );
     }, [question]);
 
     const onAnswerClick = (answer) =>
         setResult(answer === question.correct_answer);
 
-    const button =
-        currentIndex + 1 < totalQuestions ? (
-            <button onClick={showNext}>Next</button>
+    const renderResult = () => {
+        if (result === null) return null;
+        if (result)
+            return <p className="text-green-600 my-5">Correct answer \o/</p>;
+
+        return <p className="text-red-600 my-5">Incorrect answer :/</p>;
+    };
+
+    const renderNextButton = () => {
+        if (result === null) return null;
+
+        return currentIndex + 1 < totalQuestions ? (
+            <button className="btn" onClick={showNext}>
+                Next question
+            </button>
         ) : (
-            <Link href="/">Back to Home</Link>
+            <Link href="/">
+                <a className="btn">Back to Home</a>
+            </Link>
         );
+    };
 
     return (
-        <div>
-            <div>
+        <div className="text-center">
+            <p className="subtitle">
                 {currentIndex + 1} of {totalQuestions}
-            </div>
-            <div>{question.question}</div>
+            </p>
+            <h1 dangerouslySetInnerHTML={{ __html: question.question }} />
             <div>{renderedAnswers}</div>
-            {result !== null && (
-                <div>
-                    {result.toString()}
-                    <div>{button}</div>
-                </div>
-            )}
+
+            <div>{renderResult()}</div>
+            <div>{renderNextButton()}</div>
         </div>
     );
 };
