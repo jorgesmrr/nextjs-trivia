@@ -1,23 +1,31 @@
-import React from "react";
-import Head from "next/head";
-import { fetchCategories } from "../../../lib/openTrivia";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import React, { useEffect, useState } from "react";
+import RankingList from "../../../components/category/RankingList";
+import { fetchRankingRecords } from "../../../lib/api";
+import { fetchCategories } from "../../../lib/openTrivia";
 import Category from "../../../models/category";
-import CategoryDetails from "../../../components/category/CategoryDetails";
 
-type QuestionPageProps = {
+type RankingPageProps = {
     category: Category;
 };
 
-const QuestionPage: React.FC<QuestionPageProps> = ({ category }) => {
+const RankingPage: React.FC<RankingPageProps> = ({ category }) => {
+    const [records, setRecords] = useState(null);
+
+    useEffect(() => {
+        const fetch = async () => setRecords(await fetchRankingRecords());
+
+        fetch();
+    }, [category]);
+
     return (
         <div>
             <Head>
-                <title>Trivia :: Category</title>
+                <title>Trivia - {category && category.name} - Ranking</title>
             </Head>
-
             <main>
-                <CategoryDetails category={category} />
+                <RankingList category={category} records={records} />
             </main>
         </div>
     );
@@ -45,4 +53,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
 };
 
-export default QuestionPage;
+export default RankingPage;

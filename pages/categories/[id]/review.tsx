@@ -1,23 +1,24 @@
-import React from "react";
-import Head from "next/head";
-import { fetchCategories } from "../../../lib/openTrivia";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import React from "react";
+import CategoryReview from "../../../components/category/CategoryReview";
+import { fetchCategories } from "../../../lib/openTrivia";
 import Category from "../../../models/category";
-import CategoryDetails from "../../../components/category/CategoryDetails";
 
-type QuestionPageProps = {
+type CategoryReviewPageProps = {
     category: Category;
 };
 
-const QuestionPage: React.FC<QuestionPageProps> = ({ category }) => {
+const CategoryReviewPage: React.FC<CategoryReviewPageProps> = ({
+    category,
+}) => {
     return (
         <div>
             <Head>
-                <title>Trivia :: Category</title>
+                <title>Trivia - {category && category.name} - Ranking</title>
             </Head>
-
             <main>
-                <CategoryDetails category={category} />
+                <CategoryReview category={category} />
             </main>
         </div>
     );
@@ -45,4 +46,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
 };
 
-export default QuestionPage;
+export default CategoryReviewPage;

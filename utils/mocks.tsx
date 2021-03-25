@@ -2,10 +2,11 @@ import faker from "faker";
 
 import Category from "../models/category";
 import Question from "../models/question";
+import { RankingRecord } from "../models/ranking-record";
 
 interface MockFactory<T> {
     one: () => T;
-    many: (count: number) => Array<T>;
+    many: (count?: number) => Array<T>;
 }
 
 // Categories
@@ -17,7 +18,7 @@ const getCategory: () => Category = () => ({
 
 export const categoryMockFactory: MockFactory<Category> = {
     one: getCategory,
-    many: (count) => [...new Array(count)].map(getCategory),
+    many: (count = 10) => [...new Array(count)].map(getCategory),
 };
 
 // Questions
@@ -30,5 +31,18 @@ const getQuestion: () => Question = () => ({
 
 export const questionMockFactory: MockFactory<Question> = {
     one: getQuestion,
-    many: (count) => [...new Array(count)].map(getQuestion),
+    many: (count = 10) => [...new Array(count)].map(getQuestion),
+};
+
+// Ranking Records
+
+const getRankingRecord: () => RankingRecord = () => ({
+    Username: { S: faker.name.firstName() },
+    Score: { S: faker.random.number().toString() },
+    CategoryId: { S: "1" },
+});
+
+export const rankingRecordMockFactory: MockFactory<RankingRecord> = {
+    one: getRankingRecord,
+    many: (count = 10) => [...new Array(count)].map(getRankingRecord),
 };

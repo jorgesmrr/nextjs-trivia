@@ -1,10 +1,15 @@
 import React from "react";
 import Head from "next/head";
-import QuestionDetailsConnect from "../../../components/question/QuestionDetailsConnect";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { fetchCategories } from "../../../lib/openTrivia";
+import Category from "../../../models/category";
+import CategoryQuestions from "../../../components/category/CategoryQuestions";
 
-const QuestionPage: React.FC = () => {
+type QuestionPageProps = {
+    category: Category;
+};
+
+const QuestionPage: React.FC<QuestionPageProps> = ({ category }) => {
     return (
         <div>
             <Head>
@@ -12,7 +17,7 @@ const QuestionPage: React.FC = () => {
             </Head>
 
             <main>
-                <QuestionDetailsConnect />
+                <CategoryQuestions category={category} />
             </main>
         </div>
     );
@@ -29,9 +34,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const categories = await fetchCategories();
+
     return {
         props: {
-            id: parseInt(params.id as string),
+            category: categories.find(
+                (category) => category.id === parseInt(params.id as string)
+            ),
         },
     };
 };

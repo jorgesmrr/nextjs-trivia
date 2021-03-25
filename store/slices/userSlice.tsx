@@ -1,19 +1,44 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 interface UserState {
-    name: string;
-    points: number;
+    username: string;
+    score: number;
 }
 
 const initialState: UserState = {
-    name: null,
-    points: 0,
+    username: null,
+    score: 0,
 };
 
-const categoriesSlice = createSlice({
+export const calculateScore = createAsyncThunk(
+    "user/calculateScore",
+    async (_, thunkAPI) => {
+        const {
+            questions,
+            answers,
+        } = (thunkAPI.getState() as RootState).category;
+
+        const correctAnswersCount = questions
+            .slice(0, answers.length)
+            .filter(
+                (question, index) => question.correct_answer === answers[index]
+            ).length;
+
+        thunkAPI.dispatch(setScore(correctAnswersCount * 100));
+    }
+);
+
+const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        setScore(state, action: PayloadAction<number>) {
+            state.score = action.payload;
+        },
+    },
 });
 
-export default categoriesSlice.reducer;
+export default userSlice.reducer;
+
+const { setScore } = userSlice.actions;
