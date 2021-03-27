@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import RankingList from "../../../components/category/RankingList";
+import RankingList from "../../../components/ranking/RankingList";
 import { fetchRankingRecords } from "../../../lib/api";
 import { fetchCategories } from "../../../lib/openTrivia";
 import Category from "../../../models/category";

@@ -4,7 +4,7 @@ import CategoriesList, { CategoriesListProps } from "./CategoriesList";
 import { categoryMockFactory } from "../../utils/mocks";
 
 export default {
-    title: "Category/List",
+    title: "Category/CategoryList",
     component: CategoriesList,
 };
 

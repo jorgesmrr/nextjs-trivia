@@ -1,6 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import Category from "../../models/category";
+import LayoutHeader from "../layout/LayoutHeader";
+import CategoryListItem from "./CategoryListItem";
+import CenteredImage from "../ui/CenteredImage";
 
 export type CategoriesListProps = {
     categories: Category[];
@@ -9,17 +11,17 @@ export type CategoriesListProps = {
 const CategoriesList: React.FC<CategoriesListProps> = ({ categories }) => {
     return (
         <div>
-            <div className="text-center mb-4">
-                <h1 className="font-bold text-2xl mb-3">Trivia</h1>
-                <p>Select a category below to start answering questions :)</p>
+            <LayoutHeader title="Trivia" />
+            <div className="svg-question mx-auto" style={{ maxWidth: 500 }} />
+            <CenteredImage file="question.svg" />
+            <p className="mb-12 text-center">
+                Select a category below to start answering questions
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+                {categories.map((category) => (
+                    <CategoryListItem key={category.id} category={category} />
+                ))}
             </div>
-            {categories.map((category) => (
-                <Link href={`/categories/${category.id}`} key={category.id}>
-                    <a key={category.id} className="block btn">
-                        {category.name}
-                    </a>
-                </Link>
-            ))}
         </div>
     );
 };

@@ -38,8 +38,8 @@ export const questionMockFactory: MockFactory<Question> = {
 
 const getRankingRecord: () => RankingRecord = () => ({
     Username: { S: faker.name.firstName() },
-    Score: { S: faker.random.number().toString() },
-    CategoryId: { S: "1" },
+    Score: { N: faker.random.number().toString() },
+    CategoryId: { N: "1" },
 });
 
 export const rankingRecordMockFactory: MockFactory<RankingRecord> = {

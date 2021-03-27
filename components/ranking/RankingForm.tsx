@@ -1,34 +1,30 @@
 import React, { useState } from "react";
-import { useAppSelector } from "../../store/hooks";
-import { postRankingRecord } from "../../lib/api";
-import { getCurrentCategory } from "../../store/selectors";
-import TextField from "@bit/jorgemoreira.react.input.text-field";
 
-const RankingForm: React.FC = () => {
-    const category = useAppSelector(getCurrentCategory());
-    const { username: savedUsername, score } = useAppSelector(
-        (state) => state.user
-    );
-    const [username, setUsername] = useState(savedUsername || "");
+export type RankingFormProps = {
+    username: string;
+    onSubmit: (string) => void;
+};
 
-    const submit = () => {
-        postRankingRecord({
-            Username: { S: username },
-            CategoryId: { N: category.id.toString() },
-            Score: { N: score.toString() },
-        });
-    };
+const RankingForm: React.FC<RankingFormProps> = ({
+    username: initialUsername,
+    onSubmit,
+}) => {
+    const [username, setUsername] = useState(initialUsername || "");
 
     return (
-        <div>
-            <TextField
-                label="Save your record with your username"
-                value={username}
-                onChange={setUsername}
-            />
-            <button className="btn" onClick={submit}>
-                Save
-            </button>
+        <div className="text-center">
+            <p className="mb-2">Choose a username to save your score:</p>
+            <div className="inline-flex">
+                <input
+                    type="text"
+                    className="px-2 rounded border-2 border-solid border-primary hover:border-primary-light-2 focus:border-primary-dark-3 outline-none"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
+                />
+                <button className="btn ml-2" onClick={() => onSubmit(username)}>
+                    Save
+                </button>
+            </div>
         </div>
     );
 };

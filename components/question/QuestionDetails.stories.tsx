@@ -4,7 +4,7 @@ import QuestionDetails, { QuestionDetailsProps } from "./QuestionDetails";
 import { questionMockFactory } from "../../utils/mocks";
 
 export default {
-    title: "Question/Detail",
+    title: "Question/QuestionDetail",
     component: QuestionDetails,
 };
 

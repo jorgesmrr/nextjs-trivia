@@ -4,7 +4,7 @@ import RankingList, { RankingListProps } from "./RankingList";
 import { rankingRecordMockFactory } from "../../utils/mocks";
 
 export default {
-    title: "Ranking/List",
+    title: "Ranking/RankingList",
     component: RankingList,
 };
 

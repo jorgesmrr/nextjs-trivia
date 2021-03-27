@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import CategoryReview from "../../../components/category/CategoryReview";
+import CategoryReviewConnect from "../../../components/category/CategoryReviewConnect";
 import { fetchCategories } from "../../../lib/openTrivia";
 import Category from "../../../models/category";
 
@@ -18,7 +18,7 @@ const CategoryReviewPage: React.FC<CategoryReviewPageProps> = ({
                 <title>Trivia - {category && category.name} - Ranking</title>
             </Head>
             <main>
-                <CategoryReview category={category} />
+                <CategoryReviewConnect category={category} />
             </main>
         </div>
     );

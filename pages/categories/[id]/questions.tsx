@@ -3,7 +3,7 @@ import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { fetchCategories } from "../../../lib/openTrivia";
 import Category from "../../../models/category";
-import CategoryQuestions from "../../../components/category/CategoryQuestions";
+import CategoryQuestionsConnect from "../../../components/category/CategoryQuestionsConnect";
 
 type QuestionPageProps = {
     category: Category;
@@ -17,7 +17,7 @@ const QuestionPage: React.FC<QuestionPageProps> = ({ category }) => {
             </Head>
 
             <main>
-                <CategoryQuestions category={category} />
+                <CategoryQuestionsConnect category={category} />
             </main>
         </div>
     );
