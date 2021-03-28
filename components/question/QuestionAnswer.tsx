@@ -3,38 +3,48 @@ import React from "react";
 export type QuestionAnswerProps = {
     label: string;
     answer: string;
-    success?: boolean;
-    error?: boolean;
+    correct?: boolean;
+    incorrect?: boolean;
+    missed?: boolean;
+    disabled?: boolean;
     onClick: () => void;
 };
 
 const QuestionAnswer: React.FC<QuestionAnswerProps> = ({
     label,
     answer,
-    success,
-    error,
+    correct,
+    incorrect,
+    missed,
+    disabled,
     onClick,
 }) => {
-    const bgClass = success
+    const bgClass = correct
         ? "text-white bg-green-500"
-        : error
-        ? //? "text-white bg-white border border-solid border-green-500"
-          "text-white bg-red-500"
-        : "text-primary bg-white hover:bg-primary-light-3";
+        : incorrect
+        ? "text-white bg-red-500"
+        : missed
+        ? "text-green-500 border-green-500 border-2"
+        : `text-primary bg-white ${
+              !disabled &&
+              "cursor-pointer hover:bg-primary-light-3 hover:text-white"
+          }`;
 
-    const circleBgClass = success
+    const circleBgClass = correct
         ? "bg-white text-green-500"
-        : error
+        : incorrect
         ? "bg-white text-red-500"
+        : missed
+        ? "bg-green-500 text-white"
         : "bg-primary text-white";
 
     return (
         <div
-            className={`flex items-center rounded shadow cursor-pointer py-2 px-2 hover:text-white ${bgClass}`}
-            onClick={onClick}
+            className={`text-left flex items-center rounded shadow py-2 px-2 ${bgClass}`}
+            onClick={() => !disabled && onClick()}
         >
             <div
-                className={`relative rounded-full  w-8 h-8 mr-4 ${circleBgClass}`}
+                className={`relative flex-none rounded-full w-8 h-8 mr-4 ${circleBgClass}`}
             >
                 <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 block">
                     {label}

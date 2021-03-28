@@ -32,15 +32,23 @@ const QuestionDetails: React.FC<QuestionDetailsProps> = ({
                 key={index}
                 answer={answer}
                 label={answersLabels[index]}
-                onClick={() => onAnswerClick(answer)}
-                success={
+                onClick={() => !selectedAnswer && onAnswerClick(answer)}
+                correct={
+                    selectedAnswer &&
                     answer === selectedAnswer &&
                     answer === question.correct_answer
                 }
-                error={
+                incorrect={
+                    selectedAnswer &&
                     answer === selectedAnswer &&
                     answer !== question.correct_answer
                 }
+                missed={
+                    selectedAnswer &&
+                    answer !== selectedAnswer &&
+                    answer === question.correct_answer
+                }
+                disabled={!!selectedAnswer}
             />
         ));
 

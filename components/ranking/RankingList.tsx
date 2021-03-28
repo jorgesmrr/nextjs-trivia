@@ -1,3 +1,4 @@
+import Spinner from "@bit/jorgemoreira.react.progress.spinner";
 import React from "react";
 import Category from "../../models/category";
 import { RankingRecord } from "../../models/ranking-record";
@@ -29,13 +30,18 @@ const RankingList: React.FC<RankingListProps> = ({ category, records }) => {
                 </div>
             );
         } else {
-            return <div>loading</div>;
+            return <Spinner />;
         }
     };
 
     return (
         <div>
-            <LayoutHeader title="Ranking" subtitle={`In ${category.name}`} />
+            <LayoutHeader
+                title="Ranking"
+                subtitle={`In ${category.name}`}
+                backLink={`/categories/${category.id}`}
+                backLinkLabel="Category"
+            />
             <CenteredImage file="winners.svg" />
             {renderContent()}
         </div>

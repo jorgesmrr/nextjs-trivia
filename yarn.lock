@@ -1554,28 +1554,24 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@bit/jorgemoreira.react.input.field-wrapper@0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/jorgemoreira.react.input.field-wrapper/-/jorgemoreira.react.input.field-wrapper-0.0.2.tgz#a2f19d94b852ed1ed77310e3f82c69d3684cd268"
-  integrity sha1-ovGdlLhS7R7XcxDj+Cxp02hM0mg=
+"@bit/jorgemoreira.react.input.text-field@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/jorgemoreira.react.input.text-field/-/jorgemoreira.react.input.text-field-0.0.3.tgz#badfaaeaa7d0422455e9bc81220f37ec4ab92003"
+  integrity sha1-ut+q6qfQQiRV6byBIg837Eq5IAM=
   dependencies:
     "@types/react" "^16.9.0"
 
-"@bit/jorgemoreira.react.input.field@0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/jorgemoreira.react.input.field/-/jorgemoreira.react.input.field-0.0.2.tgz#5d7d7b8915310460d0285493a845adc55cc62246"
-  integrity sha1-XX17iRUxBGDQKFSTqEWtxVzGIkY=
+"@bit/jorgemoreira.react.progress.spinner@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/jorgemoreira.react.progress.spinner/-/jorgemoreira.react.progress.spinner-0.0.1.tgz#22d334922ba3608102cc7eaab04c059ffb2d45c1"
+  integrity sha1-ItM0kiujYIECzH6qsEwFn/stRcE=
   dependencies:
     "@types/react" "^16.9.0"
 
-"@bit/jorgemoreira.react.input.text-field@0.0.5":
-  version "0.0.5"
-  resolved "https://node.bit.dev/jorgemoreira.react.input.text-field/-/jorgemoreira.react.input.text-field-0.0.5.tgz#1895363e30c9769036aa4dde278cbe365d5896b6"
-  integrity sha1-GJU2PjDJdpA2qk3eJ4y+Nl1YlrY=
-  dependencies:
-    "@bit/jorgemoreira.react.input.field" "0.0.2"
-    "@bit/jorgemoreira.react.input.field-wrapper" "0.0.2"
-    "@types/react" "^16.9.0"
+"@bit/jorgemoreira.react.styles@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/jorgemoreira.react.styles/-/jorgemoreira.react.styles-0.0.1.tgz#25a0fedc94a98118f5c76b80c25285966c54ca58"
+  integrity sha1-JaD+3JSpgRj1x2uAwlKFlmxUylg=
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"

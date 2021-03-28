@@ -16,7 +16,7 @@ const CategoryReview: React.FC<CategoryReviewProps> = ({ category, score }) => {
                 upperSubtitle="Game Over"
                 title={
                     <span>
-                        Score is:{" "}
+                        Score:{" "}
                         <span className="text-primary font-semibold">
                             {score}
                         </span>
@@ -24,9 +24,11 @@ const CategoryReview: React.FC<CategoryReviewProps> = ({ category, score }) => {
                 }
             />
             <RankingFormConnect />
-            <Link href={`/categories/${category.id}/ranking`}>
-                <a className="block mt-6">See Ranking</a>
-            </Link>
+            <div className="text-center">
+                <Link href={`/categories/${category.id}/ranking`}>
+                    <a className="inline-block mt-6">See Ranking</a>
+                </Link>
+            </div>
         </div>
     );
 };

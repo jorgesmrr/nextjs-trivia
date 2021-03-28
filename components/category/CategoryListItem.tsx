@@ -8,7 +8,7 @@ export type CategoryListItemProps = {
 const CategoryListItem = ({ category }) => {
     return (
         <Link href={`/categories/${category.id}`} key={category.id}>
-            <a key={category.id} className="btn">
+            <a key={category.id} className="btn text-left">
                 {category.name}
             </a>
         </Link>

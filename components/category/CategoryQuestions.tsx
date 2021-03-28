@@ -1,3 +1,5 @@
+import Spinner from "@bit/jorgemoreira.react.progress.spinner";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Category from "../../models/category";
 import Question from "../../models/question";
@@ -21,28 +23,40 @@ const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
 
     useEffect(() => setAnswer(null), [category, question]);
 
-    const renderNextButton = () => {
-        return answer ? (
+    const renderNextButton = () =>
+        answer ? (
             <button className="btn" onClick={onAnswerClick}>
                 Next Question
             </button>
         ) : (
             <p className="text-gray-light">Select the correct answer</p>
         );
-    };
+
+    const renderContent = () =>
+        question ? (
+            <div>
+                <p className="subtitle mt-8 mb-2">{`Question ${
+                    currentQuestionIndex + 1
+                }`}</p>
+                <QuestionDetails
+                    question={question}
+                    selectedAnswer={answer}
+                    onAnswerClick={setAnswer}
+                />
+                <div className="mt-12 mb-4">{renderNextButton()}</div>
+            </div>
+        ) : (
+            <Spinner />
+        );
 
     return (
         <div className="text-center">
-            <LayoutHeader title={category.name} />
-            <p className="subtitle mt-8 mb-2">{`Question ${
-                currentQuestionIndex + 1
-            }`}</p>
-            <QuestionDetails
-                question={question}
-                selectedAnswer={answer}
-                onAnswerClick={setAnswer}
+            <LayoutHeader
+                title={category.name}
+                backLink={`/categories/${category.id}`}
+                backLinkLabel="Give Up"
             />
-            <div className="mt-12 mb-4">{renderNextButton()}</div>
+            {renderContent()}
         </div>
     );
 };

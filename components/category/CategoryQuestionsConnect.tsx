@@ -54,16 +54,12 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
         }
     };
 
-    return question ? (
-        <CategoryQuestions
+        return <CategoryQuestions
             category={category}
             question={question}
             currentQuestionIndex={currentQuestionIndex}
             onAnswerClick={onAnswerClick}
         />
-    ) : (
-        <div>loading</div>
-    );
 };
 
 export default CategoryQuestionsConnect;

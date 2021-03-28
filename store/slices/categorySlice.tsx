@@ -20,7 +20,7 @@ const initialState: QuestionsState = {
 export const setCurrentCategory = createAsyncThunk(
     "category/setCurrentCategory",
     async (category: Category, thunkAPI) => {
-        thunkAPI.dispatch(reset);
+        thunkAPI.dispatch(reset());
         return {
             category,
             questions: await fetchQuestions(category.id),
