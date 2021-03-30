@@ -12,10 +12,18 @@ type RankingPageProps = {
 
 const RankingPage: React.FC<RankingPageProps> = ({ category }) => {
     const [records, setRecords] = useState(null);
+    const [hasFailedToFetch, setFailedToFetch] = useState(false);
 
     useEffect(() => {
-        const fetch = async () => setRecords(await fetchRankingRecords());
+        const fetch = async () => {
+            try {
+                setRecords(await fetchRankingRecords(category.id));
+            } catch (e) {
+                setFailedToFetch(true);
+            }
+        };
 
+        setFailedToFetch(false);
         fetch();
     }, [category]);
 
@@ -25,7 +33,11 @@ const RankingPage: React.FC<RankingPageProps> = ({ category }) => {
                 <title>Trivia - {category && category.name} - Ranking</title>
             </Head>
             <main>
-                <RankingList category={category} records={records} />
+                <RankingList
+                    category={category}
+                    records={records}
+                    hasFailedToFetch={hasFailedToFetch}
+                />
             </main>
         </div>
     );

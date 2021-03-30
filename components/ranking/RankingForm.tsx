@@ -3,11 +3,13 @@ import TextField from "@bit/jorgemoreira.react.input.text-field";
 
 export type RankingFormProps = {
     username: string;
+    errorToShow: string;
     onSubmit: (string) => void;
 };
 
 const RankingForm: React.FC<RankingFormProps> = ({
     username: initialUsername,
+    errorToShow,
     onSubmit,
 }) => {
     const [username, setUsername] = useState(initialUsername || "");
@@ -15,7 +17,7 @@ const RankingForm: React.FC<RankingFormProps> = ({
     return (
         <div className="text-center">
             <p className="mb-2">Choose a username to save your score:</p>
-            <div className="inline-flex">
+            <div className="inline-flex mb-2">
                 <TextField
                     type="text"
                     value={username}
@@ -25,6 +27,7 @@ const RankingForm: React.FC<RankingFormProps> = ({
                     Save
                 </button>
             </div>
+            <p className="text-red-500 text-sm">{errorToShow}</p>
         </div>
     );
 };

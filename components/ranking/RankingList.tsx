@@ -9,26 +9,45 @@ import CenteredImage from "../ui/CenteredImage";
 export type RankingListProps = {
     category: Category;
     records: RankingRecord[];
+    hasFailedToFetch: boolean;
 };
 
-const RankingList: React.FC<RankingListProps> = ({ category, records }) => {
+const RankingList: React.FC<RankingListProps> = ({
+    category,
+    records,
+    hasFailedToFetch,
+}) => {
     const renderRanking = () => {
-        return records.map((record, index) => (
-            <RankingListItem key={index} record={record} />
+        return records.map((record) => (
+            <RankingListItem key={record.Username.S} record={record} />
         ));
     };
 
     const renderContent = () => {
-        if (records) {
+        if (hasFailedToFetch) {
             return (
-                <div className="bg-gray-light-3 shadow-md rounded p-4">
-                    <div className="flex justify-between font-montserrat text-xs font-semibold uppercase text-gray-light px-4 mb-4">
-                        <div>Username</div>
-                        <div>Points</div>
-                    </div>
-                    <div className="grid gap-2">{renderRanking()}</div>
-                </div>
+                <p className="text-center">
+                    There was an error while loading the records
+                </p>
             );
+        } else if (records) {
+            if (records.length) {
+                return (
+                    <div className="bg-gray-light-3 shadow-md rounded p-4">
+                        <div className="flex justify-between font-montserrat text-xs font-semibold uppercase text-gray-light px-4 mb-4">
+                            <div>Username</div>
+                            <div>Points</div>
+                        </div>
+                        <div className="grid gap-2">{renderRanking()}</div>
+                    </div>
+                );
+            } else {
+                return (
+                    <p className="text-center">
+                        No one has played this category yet
+                    </p>
+                );
+            }
         } else {
             return <Spinner />;
         }
