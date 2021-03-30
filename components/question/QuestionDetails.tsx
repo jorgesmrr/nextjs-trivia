@@ -58,7 +58,7 @@ const QuestionDetails: React.FC<QuestionDetailsProps> = ({
                 className="mb-12"
                 dangerouslySetInnerHTML={{ __html: question.question }}
             />
-            <div className="grid grid-cols-2 gap-4">{renderAnswers()}</div>
+            <div className="grid sm:grid-cols-2 gap-4">{renderAnswers()}</div>
         </div>
     );
 };
