@@ -19,7 +19,6 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
 }) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const [answer, setAnswer] = useState(null);
 
     const currentQuestionIndex = useAppSelector(
         (state) => state.category.currentQuestionIndex
@@ -41,9 +40,7 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
         dispatch(setCurrentCategory(category));
     }, [category]);
 
-    useEffect(() => setAnswer(null), [category, question]);
-
-    const onAnswerClick = () => {
+    const onAnswerClick = (answer) => {
         dispatch(saveAnswer(answer));
 
         if (currentQuestionIndex + 1 < totalQuestions) {
@@ -54,12 +51,15 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
         }
     };
 
-        return <CategoryQuestions
+    return (
+        <CategoryQuestions
             category={category}
             question={question}
             currentQuestionIndex={currentQuestionIndex}
+            totalQuestions={totalQuestions}
             onAnswerClick={onAnswerClick}
         />
+    );
 };
 
 export default CategoryQuestionsConnect;

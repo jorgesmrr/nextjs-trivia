@@ -8,29 +8,38 @@ import QuestionDetails from "../question/QuestionDetails";
 
 export type CategoryQuestionsProps = {
     category: Category;
-    currentQuestionIndex: number;
     question: Question;
+    currentQuestionIndex: number;
+    totalQuestions: number;
     onAnswerClick: (string) => void;
 };
 
 const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
     category,
-    currentQuestionIndex,
     question,
+    currentQuestionIndex,
+    totalQuestions,
     onAnswerClick,
 }) => {
     const [answer, setAnswer] = useState(null);
 
     useEffect(() => setAnswer(null), [category, question]);
 
-    const renderNextButton = () =>
-        answer ? (
-            <button className="btn" onClick={onAnswerClick}>
-                Next Question
-            </button>
-        ) : (
-            <p className="text-gray-light">Select the correct answer</p>
-        );
+    const renderNextButton = () => {
+        if (answer) {
+            const buttonLabel =
+                currentQuestionIndex + 1 === totalQuestions
+                    ? "Finish"
+                    : "Next Question";
+            return (
+                <button className="btn" onClick={() => onAnswerClick(answer)}>
+                    {buttonLabel}
+                </button>
+            );
+        } else {
+            return <p className="text-gray-light">Select the correct answer</p>;
+        }
+    };
 
     const renderContent = () =>
         question ? (
