@@ -11,9 +11,14 @@ const RankingFormConnect: React.FC = () => {
     const category = useAppSelector(getCurrentCategory());
     const { username, score } = useAppSelector((state) => state.user);
     const [isPostingRecord, setPostingRecord] = useState(false);
-    const [apiError, setApiError] = useState(null);
+    const [usernameError, setUsernameError] = useState(null);
 
     const onSubmit = async (username) => {
+        if (!/^[a-zA-Z0-9\-]+$/.test(username)) {
+            setUsernameError("Please use only alphanumeric characteres");
+            return;
+        }
+
         setPostingRecord(null);
         setPostingRecord(true);
         try {
@@ -25,7 +30,7 @@ const RankingFormConnect: React.FC = () => {
             router.push(`/categories/${category.id}/ranking`);
         } catch (e) {
             setPostingRecord(false);
-            setApiError(e);
+            setUsernameError(e);
         }
     };
 
@@ -34,7 +39,7 @@ const RankingFormConnect: React.FC = () => {
     ) : (
         <RankingForm
             username={username}
-            errorToShow={apiError}
+            errorToShow={usernameError}
             onSubmit={onSubmit}
         />
     );
