@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { ReactNode } from "react";
 import IconChevronLeft from "../icons/IconChevronLeft";
 
-export type LayoutHeaderProps = {
+export interface LayoutHeaderProps {
     title: string | ReactNode;
     upperSubtitle?: string | ReactNode;
     description?: string | ReactNode;
@@ -10,7 +10,7 @@ export type LayoutHeaderProps = {
     backLink?: string;
     backLinkLabel?: string;
     hideOnMobile?: boolean;
-};
+}
 const LayoutHeader: React.FC<LayoutHeaderProps> = ({
     title,
     upperSubtitle,

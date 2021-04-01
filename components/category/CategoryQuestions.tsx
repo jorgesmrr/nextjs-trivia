@@ -6,14 +6,14 @@ import Question from "../../models/question";
 import LayoutHeader from "../layout/LayoutHeader";
 import QuestionDetails from "../question/QuestionDetails";
 
-export type CategoryQuestionsProps = {
+export interface CategoryQuestionsProps {
     category: Category;
     question: Question;
     currentQuestionIndex: number;
     totalQuestions: number;
     errosLeft: number;
     onAnswerClick: (string) => void;
-};
+}
 
 const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
     category,

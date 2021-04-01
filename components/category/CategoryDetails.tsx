@@ -3,9 +3,9 @@ import Category from "../../models/category";
 import LayoutHeader from "../layout/LayoutHeader";
 import CenteredImage from "../ui/CenteredImage";
 
-export type CategoryDetailsProps = {
+export interface CategoryDetailsProps {
     category: Category;
-};
+}
 
 const CategoryDetails: React.FC<CategoryDetailsProps> = ({ category }) => {
     return (

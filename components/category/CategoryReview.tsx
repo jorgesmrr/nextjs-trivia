@@ -4,12 +4,11 @@ import Category from "../../models/category";
 import LayoutHeader from "../layout/LayoutHeader";
 import RankingFormConnect from "../ranking/RankingFormConnect";
 
-export type CategoryReviewProps = {
-    category: Category;
+export interface CategoryReviewProps {
     score: number;
-};
+}
 
-const CategoryReview: React.FC<CategoryReviewProps> = ({ category, score }) => {
+const CategoryReview: React.FC<CategoryReviewProps> = ({ score }) => {
     return (
         <div className="text-center">
             <LayoutHeader

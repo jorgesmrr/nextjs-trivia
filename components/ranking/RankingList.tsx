@@ -6,11 +6,11 @@ import LayoutHeader from "../layout/LayoutHeader";
 import RankingListItem from "../ranking/RankingListItem";
 import CenteredImage from "../ui/CenteredImage";
 
-export type RankingListProps = {
+export interface RankingListProps {
     category: Category;
     records: RankingRecord[];
     hasFailedToFetch: boolean;
-};
+}
 
 const RankingList: React.FC<RankingListProps> = ({
     category,

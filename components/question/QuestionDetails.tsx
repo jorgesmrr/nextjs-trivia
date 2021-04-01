@@ -3,11 +3,11 @@ import Question from "../../models/question";
 import { shuffle } from "../../utils/array";
 import QuestionAnswer from "./QuestionAnswer";
 
-export type QuestionDetailsProps = {
+export interface QuestionDetailsProps {
     question: Question;
     selectedAnswer?: string;
     onAnswerClick: (string) => void;
-};
+}
 
 const QuestionDetails: React.FC<QuestionDetailsProps> = ({
     question,

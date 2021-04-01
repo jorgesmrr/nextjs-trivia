@@ -5,9 +5,9 @@ import { useAppSelector } from "../../store/hooks";
 import { getQuestions } from "../../store/selectors";
 import CategoryReview from "./CategoryReview";
 
-export type CategoryReviewConnectProps = {
+export interface CategoryReviewConnectProps {
     category: Category;
-};
+}
 
 const CategoryReviewConnect: React.FC<CategoryReviewConnectProps> = ({
     category,
@@ -20,7 +20,7 @@ const CategoryReviewConnect: React.FC<CategoryReviewConnectProps> = ({
         !questions && router.push(`/categories/${category.id}`);
     }, []);
 
-    return questions && <CategoryReview category={category} score={score} />;
+    return questions && <CategoryReview score={score} />;
 };
 
 export default CategoryReviewConnect;

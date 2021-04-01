@@ -14,9 +14,9 @@ import {
 } from "../../store/slices/categorySlice";
 import CategoryQuestions from "./CategoryQuestions";
 
-export type CategoryQuestionsConnectProps = {
+export interface CategoryQuestionsConnectProps {
     category: Category;
-};
+}
 
 const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
     category,

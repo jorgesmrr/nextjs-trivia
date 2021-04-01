@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Category from "../../models/category";
 
-export type CategoryListItemProps = {
+export interface CategoryListItemProps {
     category: Category;
-};
+}
 
 const CategoryListItem = ({ category }) => {
     return (

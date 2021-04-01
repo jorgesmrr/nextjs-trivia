@@ -1,8 +1,8 @@
 import { RankingRecord } from "../../models/ranking-record";
 
-export type RankingListItemProps = {
+export interface RankingListItemProps {
     record: RankingRecord;
-};
+}
 
 const RankingListItem: React.FC<RankingListItemProps> = ({ record }) => {
     return (

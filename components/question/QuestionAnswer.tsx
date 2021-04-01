@@ -1,6 +1,6 @@
 import React from "react";
 
-export type QuestionAnswerProps = {
+export interface QuestionAnswerProps {
     label: string;
     answer: string;
     correct?: boolean;
@@ -8,7 +8,7 @@ export type QuestionAnswerProps = {
     missed?: boolean;
     disabled?: boolean;
     onClick: () => void;
-};
+}
 
 const QuestionAnswer: React.FC<QuestionAnswerProps> = ({
     label,

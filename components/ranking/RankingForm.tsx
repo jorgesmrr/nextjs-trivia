@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import TextField from "@bit/jorgemoreira.react.input.text-field";
 
-export type RankingFormProps = {
+export interface RankingFormProps {
     username: string;
     errorToShow: string;
     onSubmit: (string) => void;
-};
+}
 
 const RankingForm: React.FC<RankingFormProps> = ({
     username: initialUsername,

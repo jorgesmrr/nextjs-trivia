@@ -4,7 +4,7 @@ import LayoutHeader from "../layout/LayoutHeader";
 import CategoryListItem from "./CategoryListItem";
 import CenteredImage from "../ui/CenteredImage";
 
-export type CategoriesListProps = {
+export interface CategoriesListProps {
     categories: Category[];
 };
 

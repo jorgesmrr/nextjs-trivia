@@ -5,7 +5,9 @@ import CategoriesList from "../components/category/CategoriesList";
 import Category from "../models/category";
 import { fetchCategories } from "../lib/openTrivia";
 
-export type HomeProps = { categories: Category[] };
+export interface HomeProps {
+    categories: Category[];
+}
 
 const Home: React.FC<HomeProps> = ({ categories }) => {
     return (
