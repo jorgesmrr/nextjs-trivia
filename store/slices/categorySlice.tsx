@@ -8,6 +8,7 @@ interface QuestionsState {
     questions: Question[];
     currentQuestionIndex?: number;
     answers: string[];
+    errorsCount: number;
 }
 
 const initialState: QuestionsState = {
@@ -15,6 +16,7 @@ const initialState: QuestionsState = {
     questions: null,
     currentQuestionIndex: null,
     answers: null,
+    errorsCount: null,
 };
 
 export const setCurrentCategory = createAsyncThunk(
@@ -37,12 +39,19 @@ const categorySlice = createSlice({
             state.questions = null;
             state.currentQuestionIndex = null;
             state.answers = null;
-        },
-        goToNextQuestion(state) {
-            state.currentQuestionIndex++;
+            state.errorsCount = null;
         },
         saveAnswer(state, action: PayloadAction<string>) {
             state.answers.push(action.payload);
+
+            if (
+                action.payload !==
+                state.questions[state.currentQuestionIndex].correct_answer
+            ) {
+                state.errorsCount++;
+            }
+
+            state.currentQuestionIndex++;
         },
     },
     extraReducers: (builder) => {
@@ -51,10 +60,11 @@ const categorySlice = createSlice({
             state.questions = action.payload.questions;
             state.currentQuestionIndex = 0;
             state.answers = [];
+            state.errorsCount = 0;
         });
     },
 });
 
 export default categorySlice.reducer;
 
-export const { goToNextQuestion, saveAnswer, reset } = categorySlice.actions;
+export const { saveAnswer, reset } = categorySlice.actions;

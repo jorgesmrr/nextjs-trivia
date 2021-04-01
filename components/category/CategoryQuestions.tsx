@@ -11,6 +11,7 @@ export type CategoryQuestionsProps = {
     question: Question;
     currentQuestionIndex: number;
     totalQuestions: number;
+    errosLeft: number;
     onAnswerClick: (string) => void;
 };
 
@@ -19,6 +20,7 @@ const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
     question,
     currentQuestionIndex,
     totalQuestions,
+    errosLeft,
     onAnswerClick,
 }) => {
     const [answer, setAnswer] = useState(null);
@@ -28,7 +30,8 @@ const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
     const renderNextButton = () => {
         if (answer) {
             const buttonLabel =
-                currentQuestionIndex + 1 === totalQuestions
+                currentQuestionIndex + 1 === totalQuestions ||
+                (errosLeft === 1 && answer !== question.correct_answer)
                     ? "Finish"
                     : "Next Question";
             return (
@@ -37,7 +40,12 @@ const CategoryQuestions: React.FC<CategoryQuestionsProps> = ({
                 </button>
             );
         } else {
-            return <p className="text-gray-light">Select the correct answer</p>;
+            return (
+                <div className="text-gray-light">
+                    <p>Select the correct answer</p>
+                    <p>You have {errosLeft} errors left</p>
+                </div>
+            );
         }
     };
 

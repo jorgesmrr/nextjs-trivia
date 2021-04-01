@@ -1,13 +1,17 @@
 import { useRouter } from "next/dist/client/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Category from "../../models/category";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
-    goToNextQuestion,
+    hasFinishedCategory,
+    getCurrentQuestion,
+    getErrorsLeft,
+} from "../../store/selectors";
+import {
     saveAnswer,
     setCurrentCategory,
 } from "../../store/slices/categorySlice";
-import { calculateScore } from "../../store/slices/userSlice";
 import CategoryQuestions from "./CategoryQuestions";
 
 export type CategoryQuestionsConnectProps = {
@@ -20,16 +24,12 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
     const router = useRouter();
     const dispatch = useAppDispatch();
 
+    const hasFinished = useSelector(hasFinishedCategory);
+    const question = useSelector(getCurrentQuestion);
+    const errosLeft = useSelector(getErrorsLeft);
+
     const currentQuestionIndex = useAppSelector(
         (state) => state.category.currentQuestionIndex
-    );
-
-    const question = useAppSelector((state) =>
-        state.category.currentQuestionIndex !== null
-            ? (state.category.questions || [])[
-                  state.category.currentQuestionIndex
-              ]
-            : null
     );
 
     const totalQuestions = useAppSelector(
@@ -40,25 +40,23 @@ const CategoryQuestionsConnect: React.FC<CategoryQuestionsConnectProps> = ({
         dispatch(setCurrentCategory(category));
     }, [category]);
 
-    const onAnswerClick = (answer) => {
-        dispatch(saveAnswer(answer));
+    useEffect(() => {
+        hasFinished && router.push(`/categories/${category.id}/review`);
+    }, [hasFinished]);
 
-        if (currentQuestionIndex + 1 < totalQuestions) {
-            dispatch(goToNextQuestion());
-        } else {
-            dispatch(calculateScore());
-            router.push(`/categories/${category.id}/review`);
-        }
-    };
+    const onAnswerClick = (answer) => dispatch(saveAnswer(answer));
 
     return (
-        <CategoryQuestions
-            category={category}
-            question={question}
-            currentQuestionIndex={currentQuestionIndex}
-            totalQuestions={totalQuestions}
-            onAnswerClick={onAnswerClick}
-        />
+        !hasFinished && (
+            <CategoryQuestions
+                category={category}
+                question={question}
+                currentQuestionIndex={currentQuestionIndex}
+                totalQuestions={totalQuestions}
+                errosLeft={errosLeft}
+                onAnswerClick={onAnswerClick}
+            />
+        )
     );
 };
 

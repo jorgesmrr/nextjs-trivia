@@ -13,14 +13,12 @@ const CategoryReviewConnect: React.FC<CategoryReviewConnectProps> = ({
     category,
 }) => {
     const router = useRouter();
-    const questions = useAppSelector(getQuestions());
+    const questions = useAppSelector(getQuestions);
     const score = useAppSelector((state) => state.user.score);
 
     useEffect(() => {
-        if (!questions) {
-            router.push("/");
-        }
-    }, [questions]);
+        !questions && router.push(`/categories/${category.id}`);
+    }, []);
 
     return questions && <CategoryReview category={category} score={score} />;
 };

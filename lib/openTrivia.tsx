@@ -1,5 +1,6 @@
 import Category from "../models/category";
 import Question from "../models/question";
+import { QUESTIONS_COUNT } from "../utils/consts";
 
 export const fetchCategories = async () => {
     const categoriesReponse = await fetch(
@@ -13,7 +14,7 @@ export const fetchCategories = async () => {
 
 export const fetchQuestions = async (categoryId: number) => {
     const questionsReponse = await fetch(
-        `https://opentdb.com/api.php?amount=2&category=${categoryId}&difficulty=easy&type=multiple`
+        `https://opentdb.com/api.php?amount=${QUESTIONS_COUNT}&category=${categoryId}&difficulty=easy&type=multiple`
     );
 
     const questionsData = await questionsReponse.json();
