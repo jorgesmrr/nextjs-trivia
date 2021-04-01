@@ -8,7 +8,10 @@ export interface CategoryListItemProps {
 const CategoryListItem = ({ category }) => {
     return (
         <Link href={`/categories/${category.id}`} key={category.id}>
-            <a key={category.id} className="btn text-left">
+            <a
+                key={category.id}
+                className="btn text-left flex flex-col justify-center"
+            >
                 {category.name}
             </a>
         </Link>

@@ -54,9 +54,9 @@
     input {
         @apply px-2 rounded border-2 border-solid border-primary hover:border-primary-light-2 focus:border-primary-dark-3 outline-none;
     }
+}
 
-    .spinner .spin {
-        border-color: theme("colors.gray.light-3");
-        border-top-color: theme("colors.primary.DEFAULT");
-    }
+.spinner .spin {
+    border-color: theme("colors.gray.light-3");
+    border-top-color: theme("colors.primary.DEFAULT");
 }
