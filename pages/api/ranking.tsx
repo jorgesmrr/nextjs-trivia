@@ -28,7 +28,13 @@ export default async function handler(req, res) {
         };
 
         const data = await dbclient.send(new ScanCommand(params));
-        res.status(200).json(data.Items);
+
+        // sorts locally because DynamoDB does not support it
+        // todo: migrate to another free DB
+        const sortedData = data.Items.sort((a, b) =>
+            parseInt(a.Score.N) > parseInt(b.Score.N) ? -1 : 1
+        );
+        res.status(200).json(sortedData);
     } else if (req.method === "POST") {
         const params = {
             TableName: "Trivia.Ranking",
