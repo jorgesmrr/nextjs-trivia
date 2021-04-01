@@ -13,8 +13,8 @@ module.exports = {
         },
         colors: {
             white: colors.white,
-            green: colors.green,
-            red: colors.red,
+            green: colors.green["500"],
+            red: colors.red["500"],
             primary: {
                 ["light-3"]: "#9d90d0",
                 ["light-2"]: "#8877c5",

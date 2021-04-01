@@ -20,22 +20,22 @@ const QuestionAnswer: React.FC<QuestionAnswerProps> = ({
     onClick,
 }) => {
     const bgClass = correct
-        ? "text-white bg-green-500"
+        ? "text-white bg-green"
         : incorrect
-        ? "text-white bg-red-500"
+        ? "text-white bg-red"
         : missed
-        ? "text-green-500 border-green-500 border-2"
+        ? "text-green border-green border-2"
         : `text-primary bg-white ${
               !disabled &&
               "cursor-pointer hover:bg-primary-light-3 hover:text-white"
           }`;
 
     const circleBgClass = correct
-        ? "bg-white text-green-500"
+        ? "bg-white text-green"
         : incorrect
-        ? "bg-white text-red-500"
+        ? "bg-white text-red"
         : missed
-        ? "bg-green-500 text-white"
+        ? "bg-green text-white"
         : "bg-primary text-white";
 
     return (

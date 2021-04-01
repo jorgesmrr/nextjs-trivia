@@ -27,7 +27,7 @@ const RankingForm: React.FC<RankingFormProps> = ({
                     Save
                 </button>
             </div>
-            <p className="text-red-500 text-sm">{errorToShow}</p>
+            <p className="text-red text-sm">{errorToShow}</p>
         </div>
     );
 };

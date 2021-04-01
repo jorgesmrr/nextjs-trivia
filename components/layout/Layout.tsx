@@ -8,7 +8,7 @@ const Layout: React.FC = ({ children }) => {
         >
             <div className="bg-white rounded shadow-lg min-h-screen flex flex-col md:block md:min-h-0">
                 <div className="p-8">{children}</div>
-                <div className="bg-gray-light-3 text-gray-light py-8 text-center text-sm rounded-b mt-auto">
+                <div className="bg-gray-light-3 text-gray-light py-8 text-center text-sm rounded-b px-4 mt-auto">
                     Developed and designed by{" "}
                     <a
                         href="https://github.com/jorgesmrr"

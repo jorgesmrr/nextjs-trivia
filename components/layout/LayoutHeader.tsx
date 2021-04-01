@@ -34,7 +34,9 @@ const LayoutHeader: React.FC<LayoutHeaderProps> = ({
                     </div>
                 )}
                 <div className="absolute top-1/2 left-1/2 text-sm transform -translate-x-1/2 -translate-y-1/2">
-                    Trivia
+                    <Link href="/">
+                        <a className="text-gray-dark-3">Trivia</a>
+                    </Link>
                 </div>
             </div>
             {backLink && (
@@ -53,7 +55,9 @@ const LayoutHeader: React.FC<LayoutHeaderProps> = ({
                 }`}
             >
                 {upperSubtitle && <p className="subtitle">{upperSubtitle}</p>}
-                <h1 className={`mx-28 ${subtitle ? null : "mb-4"}`}>{title}</h1>
+                <h1 className={`sm:mx-28 ${subtitle ? null : "mb-4"}`}>
+                    {title}
+                </h1>
                 {subtitle && <p className="subtitle">{subtitle}</p>}
                 {description && <div>{description}</div>}
             </div>
