@@ -4,10 +4,9 @@ import CategoryReview, { CategoryReviewProps } from "./CategoryReview";
 import { categoryMockFactory } from "../../utils/mocks";
 import { Provider } from "react-redux";
 import { Store } from "redux";
-
 import { action } from "@storybook/addon-actions";
 
-// A super-simple mock of a redux store
+// Mock of a redux store
 const store = {
     getState: () => {
         return {

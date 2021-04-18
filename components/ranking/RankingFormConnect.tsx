@@ -25,7 +25,7 @@ const RankingFormConnect: React.FC = () => {
     }, []);
 
     const onSubmit = async (username) => {
-        if (!/^[a-zA-Z0-9\-]+$/.test(username)) {
+        if (!/^[a-zA-Z0-9-]+$/.test(username)) {
             setUsernameError("Please use only alphanumeric characteres");
             return;
         }

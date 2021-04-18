@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
             />
             <div
                 className="select-none mx-auto relative z-10 md:my-16 pt-16 sm:pt-0"
-                style={{ maxWidth: "864px" }}
+                style={{ maxWidth: "54rem" }}
             >
                 <div className="bg-white min-h-screen flex flex-col md:block md:min-h-0 md:rounded md:shadow-lg">
                     <div className="p-8">{children}</div>
