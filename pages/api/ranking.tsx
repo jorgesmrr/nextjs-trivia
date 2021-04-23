@@ -5,7 +5,13 @@ import {
 } from "@aws-sdk/client-dynamodb";
 
 export default async function handler(req, res) {
-    const dbclient = new DynamoDBClient({ region: "us-east-2" });
+    const dbclient = new DynamoDBClient({
+        region: "us-east-2",
+        credentials: {
+            accessKeyId: process.env.MY_AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY,
+        },
+    });
 
     if (req.method === "GET") {
         const condition = req.query.username
