@@ -34,17 +34,12 @@ module.exports = {
                 ["dark-3"]: colors.coolGray["900"],
             },
         },
-        fontSize: {
-            xs: "1rem",
-            sm: "1.125rem",
-            base: "1.333rem",
-            lg: "2.5rem",
-            xl: "3.75rem",
-        },
         fontFamily: {
             source: ["Source Sans Pro", "sans-serif"],
             montserrat: ["Montserrat", "sans-serif"],
         },
+        // ignore Tailwind's font size so we can use different type scales for small and large devices
+        fontSize: {},
     },
     variants: {
         extend: {},

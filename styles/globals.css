@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-xs {
+    font-size: 1rem;
+}
+
+.text-sm {
+    font-size: 1.125rem;
+}
+
+.text-base {
+    font-size: 1.266rem;
+}
+
+.text-lg {
+    font-size: 1.424rem;
+}
+
+.text-xl {
+    font-size: 1.602rem;
+}
+
+@media (min-width: 996px) {
+    .text-xs {
+        font-size: 1rem;
+    }
+
+    .text-sm {
+        font-size: 1.125rem;
+    }
+
+    .text-base {
+        font-size: 1.333rem;
+    }
+
+    .text-lg {
+        font-size: 2.339rem;
+    }
+
+    .text-xl {
+        font-size: 3.157rem;
+    }
+}
+
 @layer components {
     html {
         font-size: 16px;
@@ -10,25 +52,48 @@
 
     body {
         font-family: "Source Sans Pro";
-        @apply text-base text-gray-dark-3;
+        @apply text-gray-dark-3;
+        font-size: 1.266rem;
     }
 
     h1,
     h2,
     .subtitle {
         font-family: "Montserrat";
+        @apply text-center;
     }
 
     h1 {
-        @apply font-extrabold text-xl text-center;
+        @apply font-extrabold;
+        font-size: 1.602rem;
     }
 
     h2 {
-        @apply font-medium text-lg text-center;
+        @apply font-medium;
+        font-size: 1.424rem;
     }
 
     .subtitle {
-        @apply font-semibold text-sm uppercase text-gray-light text-center;
+        @apply font-semibold uppercase text-gray-light;
+        font-size: 1.125rem;
+    }
+
+    @media (min-width: 996px) {
+        body {
+            font-size: 1.333rem;
+        }
+
+        h1 {
+            font-size: 3.157rem;
+        }
+
+        h2 {
+            font-size: 2.369rem;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+        }
     }
 
     a {
