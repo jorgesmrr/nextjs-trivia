@@ -8,13 +8,16 @@ export const fetchCategories = async () => {
     );
 
     const categoriesData = await categoriesReponse.json();
+    const sortedCategories = (categoriesData.trivia_categories as Category[]).sort(
+        (a, b) => (a.name > b.name ? 1 : -1)
+    );
 
-    return categoriesData.trivia_categories as Category[];
+    return sortedCategories;
 };
 
 export const fetchQuestions = async (categoryId: number) => {
     const questionsReponse = await fetch(
-        `https://opentdb.com/api.php?amount=${QUESTIONS_COUNT}&category=${categoryId}&difficulty=easy&type=multiple`
+        `https://opentdb.com/api.php?amount=${QUESTIONS_COUNT}&category=${categoryId}&type=multiple`
     );
 
     const questionsData = await questionsReponse.json();
