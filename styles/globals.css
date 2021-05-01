@@ -101,7 +101,8 @@
     }
 
     .btn {
-        @apply inline-block shadow-md rounded bg-primary text-white py-2 px-4 outline-none;
+        @apply inline-block shadow-md rounded bg-primary text-white px-4 outline-none;
+        line-height: 2.5rem;
     }
 
     .btn:focus {
@@ -117,7 +118,8 @@
     }
 
     input {
-        @apply px-2 rounded border-2 border-solid border-primary hover:border-primary-light-2 focus:border-primary-dark-3 outline-none;
+        @apply w-full px-2 rounded border-2 border-solid border-primary hover:border-primary-light-2 focus:border-primary-dark-3 outline-none;
+        line-height: 2.5rem;
     }
 }
 
