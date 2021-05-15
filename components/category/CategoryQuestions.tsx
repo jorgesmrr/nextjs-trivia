@@ -1,4 +1,4 @@
-import Spinner from "@bit/jorgemoreira.react.progress.spinner";
+import Spinner from "@bit/jorgemoreira.headless-react.progress.spinner";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Category from "../../models/category";

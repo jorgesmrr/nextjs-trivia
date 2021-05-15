@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextField from "@bit/jorgemoreira.react.input.text-field";
+import TextField from "@bit/jorgemoreira.headless-react.input.text-field";
 
 export interface RankingFormProps {
     username: string;

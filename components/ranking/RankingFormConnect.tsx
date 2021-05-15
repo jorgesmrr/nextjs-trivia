@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { postRankingRecord } from "../../lib/api";
 import { getCurrentCategory } from "../../store/selectors";
 import RankingForm from "./RankingForm";
-import Spinner from "@bit/jorgemoreira.react.progress.spinner";
+import Spinner from "@bit/jorgemoreira.headless-react.progress.spinner";
 import { useRouter } from "next/dist/client/router";
 import { calculateScore } from "../../store/slices/userSlice";
 import { reset } from "../../store/slices/categorySlice";

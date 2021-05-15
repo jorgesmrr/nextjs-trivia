@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import store from "../store/store";
-import "@bit/jorgemoreira.react.styles";
+import "@bit/jorgemoreira.headless.styles";
 import "../styles/globals.css";
 import Layout from "../components/layout/Layout";
 import Head from "next/head";

@@ -1,4 +1,4 @@
-import Spinner from "@bit/jorgemoreira.react.progress.spinner";
+import Spinner from "@bit/jorgemoreira.headless-react.progress.spinner";
 import React from "react";
 import Category from "../../models/category";
 import { RankingRecord } from "../../models/ranking-record";
