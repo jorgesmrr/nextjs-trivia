@@ -1,3 +1,4 @@
+import "@bit/jorgemoreira.headless.styles";
 import "../styles/globals.css";
 
 export const parameters = {

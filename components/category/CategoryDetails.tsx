@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Category from "../../models/category";
 import LayoutHeader from "../layout/LayoutHeader";
-import CenteredImage from "../ui/CenteredImage";
+import CenteredImage from "../centered-image/CenteredImage";
 
 export interface CategoryDetailsProps {
     category: Category;

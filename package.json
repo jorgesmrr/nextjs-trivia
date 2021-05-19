@@ -15,8 +15,8 @@
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.9.0",
         "@bit/jorgemoreira.headless-react.input.text-field": "^0.0.2",
-        "@bit/jorgemoreira.headless-react.progress.spinner": "^0.0.1",
-        "@bit/jorgemoreira.headless.styles": "^0.0.6",
+        "@bit/jorgemoreira.headless-react.progress.spinner": "^0.0.2",
+        "@bit/jorgemoreira.headless.styles": "^0.0.7",
         "@reduxjs/toolkit": "^1.5.0",
         "faker": "^5.4.0",
         "next": "10.0.9",

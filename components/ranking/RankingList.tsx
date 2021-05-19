@@ -1,10 +1,10 @@
-import Spinner from "@bit/jorgemoreira.headless-react.progress.spinner";
 import React from "react";
 import Category from "../../models/category";
 import { RankingRecord } from "../../models/ranking-record";
 import LayoutHeader from "../layout/LayoutHeader";
 import RankingListItem from "../ranking/RankingListItem";
-import CenteredImage from "../ui/CenteredImage";
+import CenteredImage from "../centered-image/CenteredImage";
+import Spinner from "../spinner/Spinner";
 
 export interface RankingListProps {
     category: Category;

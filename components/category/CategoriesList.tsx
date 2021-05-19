@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Category from "../../models/category";
 import LayoutHeader from "../layout/LayoutHeader";
 import CategoryListItem from "./CategoryListItem";
-import CenteredImage from "../ui/CenteredImage";
+import CenteredImage from "../centered-image/CenteredImage";
 import TextField from "@bit/jorgemoreira.headless-react.input.text-field";
 
 export interface CategoriesListProps {

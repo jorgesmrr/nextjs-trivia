@@ -1,10 +1,10 @@
-import Spinner from "@bit/jorgemoreira.headless-react.progress.spinner";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Category from "../../models/category";
 import Question from "../../models/question";
 import LayoutHeader from "../layout/LayoutHeader";
 import QuestionDetails from "../question/QuestionDetails";
+import Spinner from "../spinner/Spinner";
 
 export interface CategoryQuestionsProps {
     category: Category;

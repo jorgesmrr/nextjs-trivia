@@ -1562,17 +1562,18 @@
     "@types/react" "^16.9.0"
     classnames "^2.3.1"
 
-"@bit/jorgemoreira.headless-react.progress.spinner@^0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/jorgemoreira.headless-react.progress.spinner/-/jorgemoreira.headless-react.progress.spinner-0.0.1.tgz#2f6edc6c86f2edc96144cc5ad2aff7cee67db946"
-  integrity sha1-L27cbIby7clhRMxa0q/3zuZ9uUY=
+"@bit/jorgemoreira.headless-react.progress.spinner@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/jorgemoreira.headless-react.progress.spinner/-/jorgemoreira.headless-react.progress.spinner-0.0.2.tgz#210458db619cf2e280d390139f6ee8b3d7e4980d"
+  integrity sha1-IQRY22Gc8uKA05ATn27os9fkmA0=
   dependencies:
     "@types/react" "^16.9.0"
+    classnames "^2.3.1"
 
-"@bit/jorgemoreira.headless.styles@^0.0.6":
-  version "0.0.6"
-  resolved "https://node.bit.dev/jorgemoreira.headless.styles/-/jorgemoreira.headless.styles-0.0.6.tgz#7802a20fc54b1518753f54b15e6cce99cd3dd8df"
-  integrity sha1-eAKiD8VLFRh1P1SxXmzOmc092N8=
+"@bit/jorgemoreira.headless.styles@^0.0.7":
+  version "0.0.7"
+  resolved "https://node.bit.dev/jorgemoreira.headless.styles/-/jorgemoreira.headless.styles-0.0.7.tgz#b229cbfdbfb97f75030b3e02ae0c4e2976609584"
+  integrity sha1-sinL/b+5f3UDCz4CrgxOKXZglYQ=
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"

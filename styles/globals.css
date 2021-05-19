@@ -101,7 +101,7 @@
     }
 
     .btn {
-        @apply inline-block shadow-md rounded bg-primary text-white px-4 outline-none;
+        @apply inline-block px-4 text-white rounded shadow-md outline-none bg-primary;
         line-height: 2.5rem;
     }
 
@@ -114,16 +114,11 @@
     }
 
     .btn:active {
-        @apply bg-primary-dark-3 outline-none;
+        @apply outline-none bg-primary-dark-3;
     }
 
     input {
-        @apply w-full px-2 rounded border-2 border-solid border-primary hover:border-primary-light-2 focus:border-primary-dark-3 outline-none;
+        @apply w-full px-2 border-2 border-solid rounded outline-none border-primary hover:border-primary-light-2 focus:border-primary-dark-3;
         line-height: 2.5rem;
     }
-}
-
-.spinner .spin {
-    border-color: theme("colors.gray.light-3");
-    border-top-color: theme("colors.primary.DEFAULT");
 }
