@@ -1,0 +1,9 @@
+.image {
+    opacity: 0;
+    color: transparent;
+    transition: opacity 250ms ease-in-out;
+}
+
+.imageLoaded {
+    opacity: 1;
+}
