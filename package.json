@@ -8,12 +8,12 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "storybook": "start-storybook -p 6006 -s ./public",
+        "build-storybook": "build-storybook -s ./public"
     },
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.9.0",
-        "@bit/jorgemoreira.headless-react.input.text-field": "^0.0.2",
+        "@bit/jorgemoreira.headless-react.input.text-field": "^0.0.3",
         "@bit/jorgemoreira.headless-react.progress.spinner": "^0.0.2",
         "@bit/jorgemoreira.headless.styles": "^0.0.7",
         "@reduxjs/toolkit": "^1.5.0",
