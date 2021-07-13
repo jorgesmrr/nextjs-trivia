@@ -1,6 +1,6 @@
 # nextjs-trivia
 
-A trivia app I made with Next.js to learn some new things. This is a work in progress.
+> A simple Trivia app made with Next.js.
 
 ## See it working
 
