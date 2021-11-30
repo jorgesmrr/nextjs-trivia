@@ -1554,10 +1554,10 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@bit/jorgemoreira.headless-react.input.text-field@^0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/jorgemoreira.headless-react.input.text-field/-/jorgemoreira.headless-react.input.text-field-0.0.2.tgz#228c0e44e5faf28c177df15946eace7acdf32c40"
-  integrity sha1-IowOROX68owXffFZRurOes3zLEA=
+"@bit/jorgemoreira.headless-react.input.text-field@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/jorgemoreira.headless-react.input.text-field/-/jorgemoreira.headless-react.input.text-field-0.0.3.tgz#a0bb7768c6ef6406de9887e3234ab618376b7b62"
+  integrity sha1-oLt3aMbvZAbemIfjI0q2GDdre2I=
   dependencies:
     "@types/react" "^16.9.0"
     classnames "^2.3.1"
